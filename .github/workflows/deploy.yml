@@ -1,0 +1,24 @@
+name: Build, test and deploy our demo app!
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: |
+          yarn install
+
+      - name: Run E2E tests (DEV)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          # Start the app
+          yarn dev &
+          # Install playwright
+          npx playwright install
+          # Run the tests!
+          yarn e2e
