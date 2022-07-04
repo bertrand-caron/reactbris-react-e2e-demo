@@ -26,9 +26,9 @@ export const Form = (props: FormProps): JSX.Element => {
             {title !== undefined && <h2>{title}</h2>}
             <form >
                 <p>Email</p>
-                <input value={email} onChange={e => setEmail(e.target.value)}/>
+                <input id="email" value={email} onChange={e => setEmail(e.target.value)}/>
                 <p>Password</p>
-                <input value={password} onChange={e => setPassword(e.target.value)}/>
+                <input id="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 <div>
                     <button type="submit" onClick={onClick} disabled={processing}>{processing ? 'Processing...' : 'Submit'}</button>
                 </div>
